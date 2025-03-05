@@ -1,0 +1,51 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.swp
+
+# Virtual environment
+venv/
+env/
+*.venv
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Zappa deployment packages
+*.zip
+.zappa/
+
+# Environment variables & config files (if sensitive)
+.env
+*.secrets
+
+# Logs and temp files
+*.log
+*.out
+*.err
+logs/
+tmp/
+*.sqlite3
+
+# IDE and editor files
+.vscode/
+.idea/
+*.sublime-workspace
+.DS_Store
+
+# System files
+Thumbs.db
+.npm/
+node_modules/
+
+# AWS & Deployment related
+.aws-sam/
+terraform.tfstate*
+build/
+dist/
+
+# GitHub Actions & CI/CD cache
+.github/workflows/*.log
+.cache/
+
