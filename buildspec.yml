@@ -1,0 +1,23 @@
+version: 0.2
+
+phases:
+  install:
+    runtime-versions:
+      python: 3.9
+    commands:
+      - echo Setting up venv and installing dependencies...
+      - pip install virtualenv
+      - virtualenv venv
+      - source venv/bin/activate
+      - pip install -r requirements.txt
+      - pip install zappa
+
+  build:
+    commands:
+      - echo Build lambda from flask and deploy using Zappa
+      - zappa update dev  # Deploy/update Lambda
+
+  post_build:
+    commands:
+      - echo "Deployment completed."
+
