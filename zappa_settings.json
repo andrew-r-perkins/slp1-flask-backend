@@ -9,7 +9,6 @@
             "s3transfer",
             "concurrent"
         ],
-        "project_name": "zappa-image-upload",
         "runtime": "python3.12",
         "s3_bucket": "andrew-perkins-in-usa-zappa",
 	"keep_warm": false, // Create CloudWatch events to keep the server warm. Default true. To remove, set to false and then `unschedule`.
