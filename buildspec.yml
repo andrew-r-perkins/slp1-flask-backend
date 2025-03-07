@@ -15,8 +15,8 @@ phases:
   build:
     commands:
       - echo Build lambda from flask and deploy using Zappa
-      #- zappa update dev  # Deploy/update Lambda
-      - zappa deploy dev  # Deploy/update Lambda
+      - zappa update dev  # Deploy/update Lambda
+      #- zappa deploy dev  # Deploy/update Lambda
 
   post_build:
     commands:
