@@ -12,6 +12,18 @@ phases:
       - pip install -r requirements.txt
       - pip install zappa
 
+  pre_build:
+    commands:
+      - echo "Pre-Build to check Python version..."
+      - sleep 1
+      - python --version
+      - which python
+      - ls -l /usr/bin/python*
+      - echo "Listing /usr/bin directory"
+      - ls -al /usr/bin | grep python
+      - echo "Sleeping for 5 seconds for output buffering"
+      - sleep 5
+
   build:
     commands:
       - echo Build lambda from flask and deploy using Zappa
