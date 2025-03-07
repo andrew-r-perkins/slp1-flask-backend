@@ -1,7 +1,6 @@
 {
     "dev": {
         "app_function": "app.app",
-        "aws_region": "us-east-2",
         "exclude": [
             "boto3",
             "dateutil",
@@ -9,10 +8,14 @@
             "s3transfer",
             "concurrent"
         ],
-        "runtime": "python3.12",
-	"profile_name": "default",
+        "profile_name": null,
+        "project_name": "zappa-image-upload",
+        "runtime": "python3.9",
         "s3_bucket": "andrew-perkins-in-usa-zappa",
-	"keep_warm": false, // Create CloudWatch events to keep the server warm. Default true. To remove, set to false and then `unschedule`.
-	"log_level": "DEBUG",
+	"aws_region": "us-east-2",
+        "timeout_seconds": 30,
+        "memory_size": 128,
+        "slim_handler": true,
+        "keep_warm": false
     }
 }
