@@ -5,8 +5,10 @@ phases:
     runtime-versions:
       python: 3.9
     commands:
-        - echo "Upgrading pip, setuptools, and wheel..."
-        - pip install --upgrade pip setuptools wheel
+        - echo "Upgrading pip and wheel..."
+        - pip install --upgrade pip wheel
+        - echo "Pinning setuptools to a stable version (<= 68.0.0)..."
+        - pip install "setuptools<=68.0.0"
         - pip show setuptools
         - pip list | grep setuptools
         - echo "Setting up virtual environment..."
