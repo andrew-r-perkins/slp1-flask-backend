@@ -6,23 +6,22 @@ phases:
       python: 3.9
     commands:
       - echo Setting up venv and installing dependencies...
+      - pip install --upgrade pip setuptools wheel  # Ensure latest versions
       - pip install virtualenv
       - virtualenv venv
       - source venv/bin/activate
       - pip install -r requirements.txt
       - pip install zappa
-      - pip install setuptools
 
   pre_build:
     commands:
       - echo "Pre-Build to check Python version..."
-      - sleep 1
       - python --version
       - which python
       - ls -l /usr/bin/python*
-      - echo "Listing /usr/bin directory"
-      - ls -al /usr/bin | grep python
-      - echo "Sleeping for 5 seconds for output buffering"
+      - pip show setuptools
+      - pip list | grep setuptools
+      - python -c "import distutils" || echo "Distutils is missing!"
       - sleep 5
 
   build:
