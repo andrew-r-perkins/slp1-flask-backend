@@ -15,6 +15,9 @@ phases:
         - pip install virtualenv
         - virtualenv venv
         - source venv/bin/activate
+        - echo "Ensuring setuptools inside venv is also downgraded..."
+        - pip install "setuptools<=68.0.0"  # ✅ Fix applies inside venv
+        - pip show setuptools
         - pip install -r requirements.txt
         - pip install zappa
 
