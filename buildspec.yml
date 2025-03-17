@@ -5,24 +5,22 @@ phases:
     runtime-versions:
       python: 3.9
     commands:
-      - echo Setting up venv and installing dependencies...
-      - pip install --upgrade pip setuptools wheel  # Ensure latest versions
-      - pip install virtualenv
-      - virtualenv venv
-      - source venv/bin/activate
-      - pip install -r requirements.txt
-      - pip install zappa
-      - pip install distutils
+        - echo "Upgrading pip, setuptools, and wheel..."
+        - pip install --upgrade pip setuptools wheel
+        - pip show setuptools
+        - pip list | grep setuptools
+        - echo "Setting up virtual environment..."
+        - pip install virtualenv
+        - virtualenv venv
+        - source venv/bin/activate
+        - pip install -r requirements.txt
+        - pip install zappa
 
   pre_build:
     commands:
-      - echo "Pre-Build to check Python version..."
       - python --version
-      - which python
-      - ls -l /usr/bin/python*
       - pip show setuptools
-      - pip list | grep setuptools
-      - python -c "import distutils" || echo "Distutils is missing!"
+      - python -c "import distutils" && echo "distutils is available!" || echo "distutils is missing!"
       - sleep 5
 
   build:
